@@ -142,7 +142,7 @@ class GameObject(ABC):
     def on_collision(self, other: 'GameObject') -> bool:
         "Returns True if the GameObject has collided with another GameObject."
         return (
-            other.x - other.width <= self.x
+            other.x <= self.x
             <= other.x + other.width
         ) and (
             other.y - other.height <= self.y
