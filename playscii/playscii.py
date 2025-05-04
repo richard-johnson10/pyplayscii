@@ -140,14 +140,11 @@ class GameObject(ABC):
                 board[~(y - i)][x + j] = render_text[i][j]
 
     def on_collision(self, other: 'GameObject') -> bool:
-        "Returns True if the GameObject has collided with another GameObject."
-        return (
-            other.x <= self.x
-            <= other.x + other.width
-        ) and (
-            other.y - other.height <= self.y
-            <= other.y + other.height
-        )
+            "Returns True if the GameObject has collided with another GameObject."
+            return (
+                (other.x <= self.x <= other.x + other.width) or (self.x <= other.x <= self.x + self.width)
+                ) and (
+                (other.y - other.height <= self.y <= other.y) or (other.y - other.height <= self.y <= other.y))
 
     def update(self):
         pass
