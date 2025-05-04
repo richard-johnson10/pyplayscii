@@ -144,7 +144,7 @@ class GameObject(ABC):
             return (
                 (other.x <= self.x <= other.x + other.width) or (self.x <= other.x <= self.x + self.width)
                 ) and (
-                (other.y - other.height <= self.y <= other.y) or (other.y - other.height <= self.y <= other.y))
-
+                (other.y - other.height <= self.y <= other.y) or (self.y - self.height <= other.y <= self.y))
+        
     def update(self):
         pass
